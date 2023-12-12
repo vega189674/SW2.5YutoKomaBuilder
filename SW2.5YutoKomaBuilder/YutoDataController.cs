@@ -29,7 +29,10 @@ namespace SW2_5YutoKomaBuilder
             string paletteStr = FetchTextData(paletteURL);
 
             SetYutokomaJsonBasic(charactorData);
-            SetBlankStatus(5);
+            if (Form1.GetInstance().isUseFreeItemChecked)
+            {
+                SetBlankStatus(Form1.GetInstance().freeItemNumValue);
+            }
             yutoKoma.data.SetStatus(MakeYutoKomaStatus(paletteStr));
             yutoKoma.data.SetParameter(MakeYutoKomaParameter(paletteStr));
 

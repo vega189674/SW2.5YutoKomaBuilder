@@ -34,6 +34,9 @@ namespace SW2_5YutoKomaBuilder
             this.url = new System.Windows.Forms.TextBox();
             this.log = new System.Windows.Forms.TextBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.isUseFreeItem = new System.Windows.Forms.CheckBox();
+            this.freeItemNum = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.freeItemNum)).BeginInit();
             this.SuspendLayout();
             // 
             // ScrapingButton
@@ -73,17 +76,46 @@ namespace SW2_5YutoKomaBuilder
             this.log.Size = new System.Drawing.Size(519, 28);
             this.log.TabIndex = 3;
             // 
+            // isUseFreeItem
+            // 
+            this.isUseFreeItem.AutoSize = true;
+            this.isUseFreeItem.Checked = true;
+            this.isUseFreeItem.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.isUseFreeItem.Location = new System.Drawing.Point(16, 208);
+            this.isUseFreeItem.Name = "isUseFreeItem";
+            this.isUseFreeItem.Size = new System.Drawing.Size(256, 25);
+            this.isUseFreeItem.TabIndex = 4;
+            this.isUseFreeItem.Text = "フリー枠を使用する/枠数：";
+            this.isUseFreeItem.UseVisualStyleBackColor = true;
+            this.isUseFreeItem.CheckedChanged += new System.EventHandler(this.isUseFreeItem_CheckedChanged);
+            // 
+            // freeItemNum
+            // 
+            this.freeItemNum.Location = new System.Drawing.Point(278, 205);
+            this.freeItemNum.Name = "freeItemNum";
+            this.freeItemNum.Size = new System.Drawing.Size(120, 28);
+            this.freeItemNum.TabIndex = 5;
+            this.freeItemNum.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.freeItemNum.ValueChanged += new System.EventHandler(this.freeItemNum_ValueChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(921, 623);
+            this.Controls.Add(this.freeItemNum);
+            this.Controls.Add(this.isUseFreeItem);
             this.Controls.Add(this.log);
             this.Controls.Add(this.url);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.ScrapingButton);
             this.Name = "Form1";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.freeItemNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,6 +128,8 @@ namespace SW2_5YutoKomaBuilder
         private System.Windows.Forms.TextBox url;
         private System.Windows.Forms.TextBox log;
         private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.CheckBox isUseFreeItem;
+        private System.Windows.Forms.NumericUpDown freeItemNum;
     }
 }
 

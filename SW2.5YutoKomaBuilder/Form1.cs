@@ -14,9 +14,26 @@ namespace SW2_5YutoKomaBuilder
 {
     public partial class Form1 : Form
     {
-        public Form1()
+        private static Form1 form1 = new Form1();
+
+
+        public static Form1 GetInstance()
+        {
+            return form1;
+        }
+        private Form1()
         {
             InitializeComponent();
+        }
+
+        public bool isUseFreeItemChecked
+        {
+            get { return isUseFreeItem.Checked; }
+        }
+
+        public int freeItemNumValue
+        {
+            get { return (int)freeItemNum.Value; }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -53,5 +70,12 @@ namespace SW2_5YutoKomaBuilder
 
         }
 
+        private void isUseFreeItem_CheckedChanged(object sender, EventArgs e)
+        {
+        }
+
+        private void freeItemNum_ValueChanged(object sender, EventArgs e)
+        {
+        }
     }
 }
