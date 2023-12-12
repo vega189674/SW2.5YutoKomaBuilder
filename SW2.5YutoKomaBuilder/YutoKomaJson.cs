@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace SW2._5YutoKomaBuilder
+namespace SW2_5YutoKomaBuilder
 {
     /// <summary>
     /// ココフォリアのコマ情報（Json形式）
@@ -99,10 +99,27 @@ namespace SW2._5YutoKomaBuilder
             roomId = null;
             commands = "";
             speaking = true;
+        }
 
+        public void SetStatus(Dictionary<string, string> pairs)
+        {
+            foreach(var valuePair in pairs)
+            {
+                Status data = new Status(valuePair.Key, valuePair.Value);
+                this.statuses.Add(data);
+            }
+        }
 
+        public void SetParameter(Dictionary<string, string> pairs)
+        {
+            foreach (var valuePair in pairs)
+            {
+                Parameter parameter= new Parameter(valuePair.Key, valuePair.Value);
+                this.parameters.Add(parameter);
+            }
         }
     }
+
 
     /// <summary>
     /// コマ内部で使用されるステータス項目
@@ -151,6 +168,11 @@ namespace SW2._5YutoKomaBuilder
         {
             label = "";
             value = "";
+        }
+        public Parameter(string str, string val)
+        {
+            label = str;
+            value = val;
         }
     }
 }

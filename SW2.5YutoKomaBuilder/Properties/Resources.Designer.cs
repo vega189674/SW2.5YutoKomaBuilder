@@ -9,7 +9,7 @@
 //------------------------------------------------------------------------------
 
 
-namespace SW2._5YutoKomaBuilder.Properties
+namespace SW2_5YutoKomaBuilder.Properties
 {
     /// <summary>
     ///   ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
@@ -43,7 +43,7 @@ namespace SW2._5YutoKomaBuilder.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SW2._5YutoKomaBuilder.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("SW2_5YutoKomaBuilder.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

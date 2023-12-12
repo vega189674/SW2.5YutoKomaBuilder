@@ -1,5 +1,5 @@
 ﻿
-namespace SW2._5YutoKomaBuilder
+namespace SW2_5YutoKomaBuilder
 {
     partial class Form1
     {

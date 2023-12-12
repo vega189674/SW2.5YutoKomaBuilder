@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 
-namespace SW2._5YutoKomaBuilder
+namespace SW2_5YutoKomaBuilder
 {
     public partial class Form1 : Form
     {
@@ -23,26 +23,15 @@ namespace SW2._5YutoKomaBuilder
         {
             log.Text = "処理開始";
             var yutoURL = url.Text;
-            var jsonURL = yutoURL + "&mode=json";
-            var paletteURL = yutoURL + "&mode=palette&tool=bcdice";
 
-            log.Text = "ダウンロード開始";
-            var json = DownloadString(jsonURL);
-
-            CharactorData charactorData = new CharactorData();
-            charactorData = JsonConvert.DeserializeObject<CharactorData>(json);
-
-            string paletteStr = DownloadString(paletteURL);
-
-            log.Text = "コマデータ作成中";
-            YutoKomaJson yutoKomaJson = SetYutokomaJson(charactorData);
-            yutoKomaJson.data.externalUrl = yutoURL;
-            yutoKomaJson.data.commands = paletteStr;
+            YutoDataController yutoDataController = new YutoDataController();
+            var yutoKomaJson = yutoDataController.ReadYutoJson(yutoURL);
 
             var jsonWriteData = JsonConvert.SerializeObject(yutoKomaJson);
 
             Clipboard.SetText(jsonWriteData);
             log.Text = "処理完了.クリップボードにコマ情報をコピーしました";
+
 
             /*
             // C:¥work¥PersonJson.json.json を UTF-8 で書き込み用でオープン

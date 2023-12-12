@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SW2._5YutoKomaBuilder
+namespace SW2_5YutoKomaBuilder
 {
     static class Program
     {
