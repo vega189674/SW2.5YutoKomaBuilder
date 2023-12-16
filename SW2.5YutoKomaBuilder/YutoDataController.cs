@@ -57,7 +57,7 @@ namespace SW2_5YutoKomaBuilder
                 string[] pair = param.Split('=');
                 if (int.TryParse(pair[1], out int number))
                 {
-                    status.Add(pair[0], pair[1]);
+                    status.Add(pair[0].Substring(2), pair[1]);
                 }
             }
             return status;
@@ -77,7 +77,7 @@ namespace SW2_5YutoKomaBuilder
                 string[] pair = param.Split('=');
                 if (!int.TryParse(pair[1], out int number))
                 {
-                    parameter.Add(pair[0], pair[1]);
+                    parameter.Add(pair[0].Substring(2), pair[1]);
                 }
             }
             return parameter;
