@@ -26,6 +26,8 @@ namespace SW2_5YutoKomaBuilder
             InitializeComponent();
         }
 
+        private static string filename = "url.txt";
+
         public bool isUseFreeItemChecked
         {
             get { return isUseFreeItem.Checked; }
@@ -76,6 +78,21 @@ namespace SW2_5YutoKomaBuilder
 
         private void freeItemNum_ValueChanged(object sender, EventArgs e)
         {
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // ファイルにTextAreaの値を保存する
+            System.IO.File.WriteAllText(filename, url.Text);
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            // ファイルからTextAreaの値を読み込む
+            if (System.IO.File.Exists("textarea.txt"))
+            {
+                url.Text = System.IO.File.ReadAllText(filename);
+            }
         }
     }
 }
