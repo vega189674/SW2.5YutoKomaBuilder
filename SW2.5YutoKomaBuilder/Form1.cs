@@ -14,14 +14,7 @@ namespace SW2_5YutoKomaBuilder
 {
     public partial class Form1 : Form
     {
-        private static Form1 form1 = new Form1();
-
-
-        public static Form1 GetInstance()
-        {
-            return form1;
-        }
-        private Form1()
+        public Form1()
         {
             InitializeComponent();
         }
@@ -46,7 +39,7 @@ namespace SW2_5YutoKomaBuilder
             try
             {
                 YutoDataController yutoDataController = new YutoDataController();
-                var yutoKomaJson = yutoDataController.ReadYutoJson(yutoURL);
+                var yutoKomaJson = yutoDataController.ReadYutoJson(yutoURL, isUseFreeItemChecked, freeItemNumValue);
 
                 var jsonWriteData = JsonConvert.SerializeObject(yutoKomaJson);
 

@@ -16,7 +16,7 @@ namespace SW2_5YutoKomaBuilder
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(Form1.GetInstance());
+            Application.Run(new Form1());
         }
     }
 }

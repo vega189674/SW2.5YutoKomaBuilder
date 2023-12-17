@@ -16,7 +16,7 @@ namespace SW2_5YutoKomaBuilder
             yutoKoma = new YutoKomaJson();
         }
 
-        public YutoKomaJson ReadYutoJson(string url)
+        public YutoKomaJson ReadYutoJson(string url, bool isUseFreeItemChecked, int freeItemNumValue)
         {
             var jsonURL = url + "&mode=json";
             var paletteURL = url + "&mode=palette&tool=bcdice";
@@ -29,9 +29,9 @@ namespace SW2_5YutoKomaBuilder
             string paletteStr = FetchTextData(paletteURL);
 
             SetYutokomaJsonBasic(charactorData);
-            if (Form1.GetInstance().isUseFreeItemChecked)
+            if (isUseFreeItemChecked)
             {
-                SetBlankStatus(Form1.GetInstance().freeItemNumValue);
+                SetBlankStatus(freeItemNumValue);
             }
             yutoKoma.data.SetStatus(MakeYutoKomaStatus(paletteStr));
             yutoKoma.data.SetParameter(MakeYutoKomaParameter(paletteStr));
