@@ -21,12 +21,12 @@ namespace SW2_5YutoKomaBuilder
 
         private static string filename = "url.txt";
 
-        public bool isUseFreeItemChecked
+        private bool isUseFreeItemChecked
         {
             get { return isUseFreeItem.Checked; }
         }
 
-        public int freeItemNumValue
+        private int freeItemNumValue
         {
             get { return (int)freeItemNum.Value; }
         }
