@@ -43,13 +43,20 @@ namespace SW2_5YutoKomaBuilder
             log.Text = "処理開始";
             var yutoURL = url.Text;
 
-            YutoDataController yutoDataController = new YutoDataController();
-            var yutoKomaJson = yutoDataController.ReadYutoJson(yutoURL);
+            try
+            {
+                YutoDataController yutoDataController = new YutoDataController();
+                var yutoKomaJson = yutoDataController.ReadYutoJson(yutoURL);
 
-            var jsonWriteData = JsonConvert.SerializeObject(yutoKomaJson);
+                var jsonWriteData = JsonConvert.SerializeObject(yutoKomaJson);
 
-            Clipboard.SetText(jsonWriteData);
-            log.Text = "処理完了.クリップボードにコマ情報をコピーしました";
+                Clipboard.SetText(jsonWriteData);
+                log.Text = "処理完了.クリップボードにコマ情報をコピーしました";
+            }
+            catch
+            {
+                log.Text = "無効なURLです";
+            }
 
 
             /*
@@ -89,7 +96,7 @@ namespace SW2_5YutoKomaBuilder
         private void Form1_Load(object sender, EventArgs e)
         {
             // ファイルからTextAreaの値を読み込む
-            if (System.IO.File.Exists("textarea.txt"))
+            if (System.IO.File.Exists(filename))
             {
                 url.Text = System.IO.File.ReadAllText(filename);
             }

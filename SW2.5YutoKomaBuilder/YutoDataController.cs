@@ -129,11 +129,18 @@ namespace SW2_5YutoKomaBuilder
 
         string FetchTextData(string url)
         {
-            using (var webClient = new System.Net.WebClient())
+            try
             {
-                // WebClientのDownloadはANSIなのでUTF8に変換
-                webClient.Encoding = System.Text.Encoding.UTF8;
-                return webClient.DownloadString(url);
+                using (var webClient = new System.Net.WebClient())
+                {
+                    // WebClientのDownloadはANSIなのでUTF8に変換
+                    webClient.Encoding = System.Text.Encoding.UTF8;
+                    return webClient.DownloadString(url);
+                }
+            }
+            catch(Exception e)
+            {
+                throw e;
             }
         }
     }
