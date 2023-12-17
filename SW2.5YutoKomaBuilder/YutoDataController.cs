@@ -46,7 +46,7 @@ namespace SW2_5YutoKomaBuilder
         /// <summary>
         /// チャットパレットからステータス項目を抜き出す
         /// </summary>
-        /// <returns></returns>
+        /// <returns>ステータスの連想配列</returns>
         private Dictionary<string, string> MakeYutoKomaStatus(string palette)
         {
             Dictionary<string, string> status = new Dictionary<string, string>();
@@ -66,7 +66,7 @@ namespace SW2_5YutoKomaBuilder
         /// <summary>
         /// チャットパレットからパラメータ項目を抜き出す
         /// </summary>
-        /// <returns>パラメータの</returns>
+        /// <returns>パラメータの連想配列</returns>
         private Dictionary<string, string> MakeYutoKomaParameter(string palette)
         {
             Dictionary<string, string> parameter = new Dictionary<string, string>();
@@ -87,7 +87,7 @@ namespace SW2_5YutoKomaBuilder
         /// 正規表現を使ってチャットパレットからパラメータの要素を抜き出す
         /// </summary>
         /// <param name="palette"></param>
-        /// <returns></returns>
+        /// <returns>チャットパレットで定義されている変数のリスト</returns>
         private List<string> extractYutoParameters(string palette)
         {
             List<string> parameters = new List<string>();
@@ -104,6 +104,10 @@ namespace SW2_5YutoKomaBuilder
             return parameters;
         }
 
+        /// <summary>
+        /// 全キャラで共通のパラメータ・ステータスを設定する
+        /// </summary>
+        /// <param name="charactorData">ゆとシートから得られる設定値クラス</param>
         private void SetYutokomaJsonBasic(CharactorData charactorData)
         {
             yutoKoma.kind = "character";
@@ -127,6 +131,11 @@ namespace SW2_5YutoKomaBuilder
             }
         }
 
+        /// <summary>
+        /// URL先からテキストデータを取得する
+        /// </summary>
+        /// <param name="url"></param>
+        /// <returns>URL先のテキストデータ</returns>
         string FetchTextData(string url)
         {
             try
