@@ -115,6 +115,8 @@ namespace SW2_5YutoKomaBuilder
             yutoKoma.data.c_name = charactorData.characterName;
             yutoKoma.data.initiative = Convert.ToInt32(charactorData.mobilityTotal);
 
+            yutoKoma.data.memo = $"{charactorData.race}\n{charactorData.raceAbility}\n\nPL名:{charactorData.playerName}";
+
             yutoKoma.data.statuses.Add(new Status("HP", charactorData.hpTotal));
             yutoKoma.data.statuses.Add(new Status("MP", charactorData.mpTotal));
             yutoKoma.data.statuses.Add(new Status("防護点", charactorData.defenseTotal1Def));

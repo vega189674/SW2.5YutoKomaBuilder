@@ -21,7 +21,10 @@ namespace SW2_5YutoKomaBuilder
         public string defenseTotal1Eva { get; set; }
         // 1番目の装備構成の防護点
         public string defenseTotal1Def { get; set; }
-
+        // 種族
+        public string race { get; set; }
+        // 種族特徴
+        public string raceAbility { get; set; }
 
         // ステータス系
         // 生命抵抗力
