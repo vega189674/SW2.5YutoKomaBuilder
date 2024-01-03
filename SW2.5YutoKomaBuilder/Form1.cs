@@ -16,16 +16,15 @@ namespace SW2_5YutoKomaBuilder
     {
         private static Form1 form1 = null;
 
-
         public static Form1 GetInstance()
         {
             if (form1 == null)
             {
                 form1 = new Form1();
-
             }
             return form1;
         }
+
         private Form1()
         {
             InitializeComponent();
